@@ -1,0 +1,17 @@
+resource "aws_instance" "test instance" {
+  ami           = "ami-052cef05d01020f1d (64-bit x86) / ami-07a4db51302058e77 (64-bit Arm)"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "test instance"
+  }
+  }
+  data "aws_vpc" "example" {
+  filter {
+    id = vpc-9fdd08f4
+  }
+}
+   data "aws_subnet" "example" {
+  filter {
+    id = subnet-02ad8d4e
+  }
+}
