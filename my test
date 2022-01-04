@@ -1,6 +1,10 @@
+provider "aws" {
+  region  = "ap-south-1"
+}
 resource "aws_instance" "test instance" {
   ami           = "ami-052cef05d01020f1d (64-bit x86) / ami-07a4db51302058e77 (64-bit Arm)"
   instance_type = "t2.micro"
+  key_name = "save thisone"
   vpc_id = "vpc-9fdd08f4"
   subnet_id = "subnet-02ad8d4e"
   tags = {
