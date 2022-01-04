@@ -1,23 +1,15 @@
 provider "aws" {
-  region  = "ap-south-1"
+  region  = "var.aws_region
 }
-resource "aws_instance" "test instance" {
-  ami           = "ami-052cef05d01020f1d (64-bit x86) / ami-07a4db51302058e77 (64-bit Arm)"
+resource "aws_instance" "testinstance" {
+  ami           = "ami-052cef05d01020f1d"
   instance_type = "t2.micro"
-  key_name = "save thisone"
-  vpc_id = "vpc-9fdd08f4"
-  subnet_id = "subnet-02ad8d4e"
-  tags = {
-    Name = "test instance"
+  key_name      = "my key"
+  tags          = {
+    Name = "testinstance"
   }
   }
-  data "aws_vpc" "example" {
-  filter {
-    id = vpc-9fdd08f4
-  }
-}
-   data "aws_subnet" "example" {
-  filter {
-    id = subnet-02ad8d4e
-  }
+variable "aws_region" {
+  description = "create things"
+  default     = "ap-south-1"
 }
